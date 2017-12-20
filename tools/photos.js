@@ -20,19 +20,16 @@ const photos = posts
 				.map(
 					attachment => single_photo_types.includes(attachment.type) ?
 						[
-							{
-								...attachment,
+							Object.assign({}, attachment, {
 								post_id: post.id
-							}
+							})
 						] 
 						:
 						attachment.subattachments.data.map(
-							subattachment => (
-								{
-									...subattachment,
+							subattachment =>
+								Object.assign({}, subattachment, {
 									post_id: post.id
-								}
-							)
+								})
 						)
 				)
 			:
@@ -107,7 +104,7 @@ function fetch_images(image_queue, callback) {
 	if (image_queue.length) {
 		let image = image_queue.shift();
 		request({
-			url: image
+			url: image.url
 		}, () => 
 			fetch_images(image_queue, callback)
 		).pipe(
