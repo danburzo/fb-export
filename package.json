@@ -1,0 +1,13 @@
+{
+  "name": "fb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "fs-extra": "^5.0.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "scapegoat": "^1.0.0"
+  }
+}

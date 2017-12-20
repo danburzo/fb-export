@@ -57,3 +57,11 @@ typings/
 # dotenv environment variables file
 .env
 
+# Private stuff
+config.json
+legacy/
+export/
+
+# Mac stuff
+.DS_Store
+
