@@ -4,6 +4,17 @@ Export (most) of your Facebook data using Node.js and the Graph API.
 
 ## Introduction
 
+Currently the scripts let you export:
+
+* your posts
+* your timeline photos
+
+To do:
+
+* your albums
+
+__Attention!__ Although I've checked against my own account for accurracy, these scripts are __no guarantee__ that all your content is exported, so exercise caution if you plan to delete the content afterwards.
+
 ## Installation
 
 You'll need Node.js, NPM and, optionally, Yarn (which these instructions use throughout). Since I wrote the scripts with ES6 syntax for its conciseness, this only probably works with more recent versions of Node. (I'm currently using `v8.9.0`).
