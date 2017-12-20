@@ -29,13 +29,13 @@ function fetch_tagged_photos(photos_queue, callback, accumulator = []) {
 			fetch_tagged_photos(
 				photos_queue.concat(
 					response.paging && response.paging.next ? 
-						[ response.paging.next ] :
+						[response.paging.next] :
 						[]
 				),
 				callback,
 				accumulator.concat(response.data)
 			)	
-		})
+		});
 	} else {
 		callback(accumulator);
 	}

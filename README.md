@@ -11,10 +11,7 @@ Data | Notes
 Posts | Things you posted on your timeline.
 Timeline photos | Photos attached to timeline posts. (__Videos are not fetched__)
 Albums | Your photo albums. (__Videos are not fetched__)
-
-To do:
-
-* (some of your) tagged photos
+Photos you're tagged in | __Not all "Pictures of you" are accessible through the API__, you'll need to manually download the other photos.
 
 __Attention!__ Although I've checked against my own account for accurracy, these scripts are __no guarantee__ that all your content is exported, so exercise caution if you plan to delete the content afterwards.
 
