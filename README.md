@@ -6,9 +6,11 @@ Export (most) of your Facebook data using Node.js and the Graph API.
 
 Currently the scripts let you export:
 
-* your posts
-* your timeline photos
-* your albums
+Data | Notes
+---- | -----
+Posts | Things you posted on your timeline.
+Timeline photos | Photos attached to timeline posts. (__Videos are not fetched__)
+Albums | Your photo albums. (__Videos are not fetched__)
 
 To do:
 
