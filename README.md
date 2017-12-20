@@ -47,3 +47,7 @@ Run `node tools/photos.js` to export your Facebook photos to the `export/photos`
 __Note:__ You'll have to have exported your posts and photos (tools above) beforehand.
 
 Run `node tools/timeline.js` to generate your HTML timeline in the `export/html` folder.
+
+### Exporting your albums
+
+Run `node tools/albums.js` to fetch the images from your Facebook albums into the `export/albums` folder. Information about your albums is stored in `export/json/albums.json`.
