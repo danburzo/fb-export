@@ -12,7 +12,7 @@ Currently the scripts let you export:
 To do:
 
 * your albums
-* HTML timeline
+* (some of your) tagged photos
 
 __Attention!__ Although I've checked against my own account for accurracy, these scripts are __no guarantee__ that all your content is exported, so exercise caution if you plan to delete the content afterwards.
 
