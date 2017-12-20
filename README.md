@@ -10,7 +10,7 @@ The purpose of this repository is to give you some tools to make the whole proce
 
 ### Why not use Facebook's own "Download your data"
 
-Facebook offers a way to [download your data](https://www.facebook.com/help/212802592074644) that sounds [comprehensive enough](https://www.facebook.com/help/405183566203254), and I encourage you to first download that data and see if the amount of information and its quality is sufficient for your purposes — if so, you're in luck.
+Facebook offers a way to [download your data](https://www.facebook.com/help/212802592074644) that sounds [comprehensive enough](https://www.facebook.com/help/405183566203254), and I encourage you to first download that data and see if the amount of information and its quality are sufficient for your purposes — if so, you're in luck.
 
 If, however, you'd like a more structured dataset and images in a better resolution, the tools below can help you. Here's what's included so far:
 
@@ -28,19 +28,23 @@ Photos you're tagged in | A subset of <sup>2</sup>
 
 #### A word of caution
 
-Although I've checked against my own account for a modicum of accurracy in the exported data, these scripts are __no guarantee__ that all your content is comprehensively and accurately exported, so exercise caution if you plan to delete the content afterwards.
+Although I've checked against my own account for a modicum of accuracy in the exported data, these scripts are __no guarantee__ that your content is comprehensively and accurately exported, so exercise caution if you plan to delete the content afterwards.
 
 ## Installation
 
 ### Prerequisites
 
-You'll need Node.js, NPM and, optionally, Yarn (which these instructions use throughout). Since I wrote the scripts with ES6 syntax for its conciseness, this only probably works with more recent versions of Node. (I'm currently using `v8.9.0`).
+You'll need [Node.js](https://nodejs.org/en/), NPM (it comes with Node) and, optionally, [Yarn](https://yarnpkg.com/en/) (which these instructions use throughout). 
+
+Since I wrote the scripts with ES6 syntax for its brevity, this only probably works with more recent versions of Node. (I'm currently using `v8.9.0`).
 
 ### Setting things up
 
-Clone the repository to your computer and run `yarn` (or `npm install`) in your project's folder to install all the necessary dependencies.
+1. Clone this repository to your computer
+2. Run `yarn` (or `npm install`) in your project's folder to install all the necessary dependencies
+3. Rename the `sample.config.json` file to `config.json` (you can do that in the terminal with `mv sample.config.json config.json`) and put in the *access token* you get from the [Facebook Graph API Explorer](https://developers.facebook.com/tools/explorer/). 
 
-__Rename__ the `sample.config.json` file to `config.json` (you can do that in the terminal with `mv sample.config.json config.json`) and put in the *access token* you can get from the [Facebook Graph API Explorer](https://developers.facebook.com/tools/explorer/). Since the token allows anyone to access your data through the API, we're not putting the actual `config.json` on GitHub.
+(Since the token allows anyone to access your data through the API, we're not putting the actual `config.json` on GitHub.)
 
 #### Getting an access token
 
@@ -51,22 +55,9 @@ __Rename__ the `sample.config.json` file to `config.json` (you can do that in th
 
 ## Tools
 
-### Exporting your Facebook posts
-
-Run `node tools/posts.js` to export your Facebook posts to JSON (in `export/json/posts.json`). Check the source code to see which fields are currently fetched, and add your own to suit your needs. [See this page](https://developers.facebook.com/docs/graph-api/reference/v2.11/post) for available fields.
-
-### Exporting your Facebook photos
-
-__Note:__ You'll need to have run the _Exporting your Facebook posts_ tool beforehand, so you have a `posts.json` to use.
-
-Run `node tools/photos.js` to export your Facebook photos to the `export/photos` folder.
-
-### Generate your HTML timeline
-
-__Note:__ You'll have to have exported your posts and photos (tools above) beforehand.
-
-Run `node tools/timeline.js` to generate your HTML timeline in the `export/html` folder.
-
-### Exporting your albums
-
-Run `node tools/albums.js` to fetch the images from your Facebook albums into the `export/albums` folder. Information about your albums is stored in `export/json/albums.json`.
+Tool | Command | Notes
+---- | ------- | -----
+Export your Facebook posts | `node tools/posts.js` | This exports your Facebook posts to JSON in `export/json/posts.json`. You can look in the source code to see which fields are currently fetched, and add your own to suit your needs. [See this page](https://developers.facebook.com/docs/graph-api/reference/v2.11/post) for available fields.
+Export timeline photos | `node tools/photos.js` | The photos are downloaded in the `export/photos` folder. __Note__ that you'll need to have run the post exporter beforehand, because the script uses the `posts.json` as a basis.
+Generate a HTML timeline | `node tools/timeline.js` | This generates a HTML timeline based on `posts.json` and the downloaded photos, so you'll need to have run the two tools above for it to work.
+Export your albums | `node tools/albums.js` | Fetches the images from your Facebook albums into the `export/albums` folder, and stores the album info in the `export/json/albums.json` file.
