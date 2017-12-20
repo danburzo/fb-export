@@ -19,7 +19,7 @@ Data | Notes
 Posts | Things you posted on your timeline.
 Timeline photos | Photos attached to timeline posts <sup>1</sup>
 Albums | Your photo albums. <sup>1</sup>
-Photos you're tagged in | A subset of <sup>2</sup>
+Photos you're tagged in | A subset of "Pictures of you", i.e. photos in which other people / Pages have tagged you <sup>2</sup>
 
 #### Notes
 
