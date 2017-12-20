@@ -13,5 +13,6 @@ fs.outputFile('export/html/timeline.html', template({
 			message: escape(post.message || '').replace(/\n/g, '<br/>'),
 			description: escape(post.description || '').replace(/\n/g, '<br/>')
 		})
-	)
+	),
+	style: fs.readFileSync('templates/timeline.css', 'utf8')
 }));
