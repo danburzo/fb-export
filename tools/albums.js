@@ -18,6 +18,7 @@ rp({
 }).then(response => {
 	let albums = response.data;
 	request_albums(albums.slice(), function() {
+		console.info('Writing album data to export/json/albums.json');
 		fs.outputFile('export/json/albums.json', JSON.stringify(albums, null, 2));
 	});
 });
@@ -25,6 +26,7 @@ rp({
 function request_albums(album_queue, callback) {
 	if (album_queue.length) {
 		let album = album_queue.shift();
+		console.log(`Fetching photos for album: ${album.id}`);
 		request_album_photos(
 			[`https://graph.facebook.com/v2.11/${album.id}/photos?fields=id,images&limit=100&access_token=${config.access_token}`],
 			photos => {
