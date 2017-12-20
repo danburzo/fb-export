@@ -55,7 +55,7 @@ const post_fields = [
 	'attachments'
 ];
 
-fetch_posts('https://graph.facebook.com/v2.11/me/posts', 'export/posts.json');
+fetch_posts('https://graph.facebook.com/v2.11/me/posts', 'export/json/posts.json');
 
 /* 
 	Functions
