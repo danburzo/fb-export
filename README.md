@@ -12,6 +12,7 @@ Currently the scripts let you export:
 To do:
 
 * your albums
+* HTML timeline
 
 __Attention!__ Although I've checked against my own account for accurracy, these scripts are __no guarantee__ that all your content is exported, so exercise caution if you plan to delete the content afterwards.
 
@@ -40,3 +41,9 @@ Run `node tools/posts.js` to export your Facebook posts to JSON (in `export/json
 __Note:__ You'll need to have run the _Exporting your Facebook posts_ tool beforehand, so you have a `posts.json` to use.
 
 Run `node tools/photos.js` to export your Facebook photos to the `export/photos` folder.
+
+### Generate your HTML timeline
+
+__Note:__ You'll have to have exported your posts and photos (tools above) beforehand.
+
+Run `node tools/timeline.js` to generate your HTML timeline in the `export/html` folder.

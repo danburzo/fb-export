@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>FB posts</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<% posts.forEach(function(post) {%> 
+		<div class='post'>
+			<div class='post__message'>
+				<%- (post.message || '').replace(/\n/, '<br>') %>	
+			</div>
+
+			<% if (post.link) { %>
+			<div class='post__link'>
+				<a href="<%= post.link %>"><%= post.link %></a>
+			</div>
+			<% } %>
+
+			<% if (post.type !== 'link') {%>
+			<div class='post__description'>
+				<%- post.description %>
+			</div>
+			<%}%>
+
+			<div class='post__attachments'>
+			<% (post.attachments || { data: [] }).data.forEach(function(attachment) {%>
+				<div class='post__attachment post__attachment--<%=attachment.type%>'>
+					<% if (attachment.type === 'share') { %>
+						<h3><%= attachment.title %></h3>
+						<div><%= attachment.description %></div>
+					<% } %>
+
+					<% if (attachment.type === 'photo') {%>
+					<img src="../photos/<%=attachment.target.id%>.jpg"/>
+					<%}%>
+
+					<% if (attachment.type === 'event') {%>
+						<h3><%= attachment.title %></h3>
+					<% } %>
+
+					<% if (attachment.type === 'album' || attachment.type === 'new_album') {%>
+						<h3><%= attachment.title %></h3>
+						<div class='post__subattachments'>
+							<% attachment.subattachments.data.forEach(function(subatt) {%>
+							<img src='../photos/<%=subatt.target.id%>.jpg'/>
+							<%})%>
+						</div>
+					<% } %>
+
+					<% if (attachment.type === 'profile_media' || attachment.type === 'cover_photo') {%>
+					<img src="../photos/<%=post.id%>.jpg"/>
+					<%}%>
+				</div>
+			<%})%>
+			</div>
+
+			<div class='post__meta'>
+
+				<span class='post__timestamp'><%= new Date(post.created_time).toLocaleDateString() %></span>			
+
+				<ul class='post__reactions'>
+					<li class='post__reaction post__reaction--likes'><%= (post.reactions || post.likes || { data: [] }).data.length %> reactions</li>
+					<li class='post__reaction post__reaction--shares'><%= post.shares ? post.shares.count : 0 %> shares</li>
+				</ul>
+
+			</div>
+
+			<div class='post__comments'>
+				<% (post.comments || { data: [] }).data.forEach(function(comment) {%>
+				<div class='post__comment'>
+					
+					<div class='post__comment-meta'> 
+						<strong class='post__comment-author'><%= comment.from ? comment.from.name : '' %></strong> 
+
+						<em class='post__comment-timestamp'>
+							<%= comment.created_time %>
+						</em>
+					</div>
+
+					<div class='post__comment-body'>
+						<%= comment.message %>
+					</div>
+
+					<% if (comment.comments) {%>
+					<div class='post__replies'>
+						<% comment.comments.data.forEach(function(reply) {%>
+						<div class='post__reply'>
+							<div class='post__reply-meta'> 
+								<strong class='post__reply-author'><%= reply.from ? reply.from.name : '' %></strong> 
+
+								<em class='post__reply-timestamp'>
+									<%= reply.created_time %>
+								</em>
+							</div>
+
+							<div class='post__reply-body'>
+								<%= reply.message %>
+							</div>
+						</div>
+						<%})%>
+
+					</div>
+					<%}%>
+				</div>
+				<%})%>
+			</div>
+
+		</div>
+	<%})%>
+</body>
+</html>
