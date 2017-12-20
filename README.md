@@ -18,4 +18,8 @@ Rename the `sample.config.json` file to `config.json` and put in the *access tok
 
 (Since this allows anyone to access your data through the API, we're not putting `config.json` on GitHub.)
 
+## Tools
 
+### Exporting your Facebook posts
+
+Run `node tools/posts.js` to export your Facebook posts to JSON (in `export/posts.json`). Check the source code to see which fields are currently fetched, and add your own to suit your needs. [See this page](https://developers.facebook.com/docs/graph-api/reference/v2.11/post) for available fields.

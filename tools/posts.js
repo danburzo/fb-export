@@ -30,6 +30,7 @@ function fetch_posts(api, outFile) {
 	let url_queue = [api];
 	fetch_posts_page(url_queue, function(data) {
 		fs.outputFile(outFile, JSON.stringify(data, null, 2));
+		console.info(`Exported ${data.length} posts to ${outFile}`);
 	});
 };
 
