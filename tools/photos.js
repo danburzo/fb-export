@@ -71,6 +71,8 @@ function fetch_queue(attachment_queue, callback, accumulator = []) {
 				])
 			);
 		} else {
+			console.log(`Fetching: ${attachment.target.id}\n`);
+
 			rp({
 				uri: `https://graph.facebook.com/v2.11/${attachment.target.id}`,
 				qs: {

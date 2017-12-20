@@ -94,6 +94,8 @@ function fetch_posts_page(pages_queue, callback, accumulator = []) {
 
 		// If so, grab the first one and take it out of the queue
 		let uri = pages_queue.shift();
+		console.log(`Fetching: ${uri} \n`);
+
 		rp({
 			uri: uri,
 			json: true
