@@ -55,7 +55,7 @@ const post_fields = [
 	'attachments'
 ];
 
-fetch_posts('https://graph.facebook.com/v2.11/me/posts', 'export/json/posts.json');
+fetch_posts(`https://graph.facebook.com/v2.11/me/posts?access_token=${config.access_token}&fields=${encodeURIComponent(post_fields.join(','))}`, 'export/json/posts.json');
 
 /* 
 	Functions
@@ -96,16 +96,6 @@ function fetch_posts_page(pages_queue, callback, accumulator = []) {
 		let uri = pages_queue.shift();
 		rp({
 			uri: uri,
-			qs: {
-				// Send the access token on the request
-				access_token: config.access_token,
-
-				// Number of posts per API page, this is a reasonable one
-				limit: 100,
-
-				// The fields to fetch
-				fields: post_fields.join(',')
-			},
 			json: true
 		}).then(response => {
 
