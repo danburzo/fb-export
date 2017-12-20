@@ -22,4 +22,10 @@ Rename the `sample.config.json` file to `config.json` and put in the *access tok
 
 ### Exporting your Facebook posts
 
-Run `node tools/posts.js` to export your Facebook posts to JSON (in `export/posts.json`). Check the source code to see which fields are currently fetched, and add your own to suit your needs. [See this page](https://developers.facebook.com/docs/graph-api/reference/v2.11/post) for available fields.
+Run `node tools/posts.js` to export your Facebook posts to JSON (in `export/json/posts.json`). Check the source code to see which fields are currently fetched, and add your own to suit your needs. [See this page](https://developers.facebook.com/docs/graph-api/reference/v2.11/post) for available fields.
+
+### Exporting your Facebook photos
+
+__Note:__ You'll need to have run the _Exporting your Facebook posts_ tool beforehand, so you have a `posts.json` to use.
+
+Run `node tools/photos.js` to export your Facebook photos to the `export/photos` folder.
