@@ -1,5 +1,7 @@
 # fb-export
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/danburzo/fb-export.svg)](https://greenkeeper.io/)
+
 Export (most) of your Facebook data using Node.js and the Graph API.
 
 ## Introduction
